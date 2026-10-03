@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Cadastro de Voluntário | ONG Ação Solidária</title>
+</head>
+<body>
+
+    <header>
+        <img src="img/Logo.png" alt="Logotipo da ONG Ação Solidária, com mãos unidas em formato de coração" />
+        <nav aria-label="Navegação principal">
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="projetos.html">Projetos</a></li>
+                <li><a href="cadastro.html" aria-current="page">Seja um Voluntário</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Torne-se um Voluntário</h1>
+        <p>Preencha os dados abaixo com atenção. Os campos com asterisco (*) são obrigatórios.</p>
+
+        <form action="/enviar-cadastro" method="POST">
+            
+            <!-- Bloco 1: Dados Pessoais -->
+            <fieldset>
+                <legend>Dados Pessoais</legend>
+                
+                <label for="nome">Nome Completo *</label>
+                <input type="text" id="nome" name="nome" required />
+
+                <label for="email">E-mail *</label>
+                <input type="email" id="email" name="email" required />
+
+                <label for="data-nascimento">Data de Nascimento *</label>
+                <input type="date" id="data-nascimento" name="data-nascimento" required />
+
+                <!-- Validação de CPF -->
+                <label for="cpf">CPF *</label>
+                <input type="text" id="cpf" name="cpf" 
+                       pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" maxlength="14" 
+                       title="Formato exigido: xxx.xxx.xxx-xx" 
+                       placeholder="123.456.789-00" required />
+
+                <!-- Validação de Telefone -->
+                <label for="telefone">Telefone / WhatsApp *</label>
+                <input type="tel" id="telefone" name="telefone" 
+                       pattern="\(\d{2}\)\s\d{4,5}-\d{4}" maxlength="15" 
+                       title="Formato exigido: (xx) xxxxx-xxxx" 
+                       placeholder="(34) 99999-9999" required />
+            </fieldset>
+
+            <!-- Bloco 2: Localização -->
+            <fieldset>
+                <legend>Endereço e Localização</legend>
+
+                <!-- Validação de CEP -->
+                <label for="cep">CEP *</label>
+                <input type="text" id="cep" name="cep" 
+                       pattern="\d{5}-\d{3}" maxlength="9" 
+                       title="Formato exigido: xxxxx-xxx" 
+                       placeholder="00000-000" required />
+
+                <label for="endereco">Rua e Número *</label>
+                <input type="text" id="endereco" name="endereco" required />
+
+                <label for="cidade">Cidade *</label>
+                <input type="text" id="cidade" name="cidade" required />
+
+                <label for="estado">Estado *</label>
+                <select id="estado" name="estado" required>
+                    <option value="" disabled selected>Selecione um estado</option>
+                    <option value="MG">Minas Gerais (MG)</option>
+                    <option value="SP">São Paulo (SP)</option>
+                    <option value="RJ">Rio de Janeiro (RJ)</option>
+                    <!-- Demais estados ocultados para brevidade -->
+                </select>
+            </fieldset>
+
+            <!-- Bloco 3: Disponibilidade -->
+            <fieldset>
+                <legend>Áreas de Interesse e Disponibilidade</legend>
+
+                <p>Em quais projetos você deseja atuar? (Selecione um ou mais)</p>
+                <label><input type="checkbox" name="interesse" value="alfabetizacao"> Alfabetização de Adultos</label><br>
+                <label><input type="checkbox" name="interesse" value="cestas"> Distribuição de Cestas Básicas</label><br>
+                <label><input type="checkbox" name="interesse" value="eventos"> Organização de Eventos</label><br>
+
+                <label for="motivacao">Conte-nos por que deseja ser voluntário:</label><br>
+                <textarea id="motivacao" name="motivacao" rows="5" cols="40" placeholder="Escreva aqui..."></textarea>
+            </fieldset>
+
+            <button type="submit">Enviar Cadastro</button>
+        </form>
+    </main>
+
+    <footer>
+        <address>
+            <p><strong>Sede:</strong> Rua da Esperança, 123, Centro - Araxá, MG</p>
+            <p><strong>Email:</strong> <a href="mailto:contato@acaosolidaria.org.br">contato@acaosolidaria.org.br</a></p>
+        </address>
+        <p>&copy; 2026 ONG Ação Solidária. Todos os direitos reservados.</p>
+    </footer>
+
+</body>
+</html>
